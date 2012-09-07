@@ -57,21 +57,21 @@ If a callback is not supplied, only the JSON structure will be returned.
 
 Given the following configuration:
 
-    plugin JSON => (callback => 'callback_function');
+  plugin JSON => (callback => 'callback_function');
 
 And the following action:
 
-    get '/' {
-      shift->render_jsonp({one => 'two'})
-    };
+  get '/' {
+    shift->render_jsonp({one => 'two'})
+  };
 
 And this client (browser) request:
 
-    http://domain.com/?callback_function=my_function
+  http://domain.com/?callback_function=my_function
 
 The following will be returned:
 
-    my_function({"one":"two"});
+  my_function({"one":"two"});
 
 If the client request does not specify the expected callback function:
 
@@ -79,13 +79,13 @@ If the client request does not specify the expected callback function:
 
 Only the JSON will be returned:
 
-{"one":"two"}
+  {"one":"two"}
 
 Optionally, you can specify a callback parameter in the render_jsonp helper:
 
-    get '/' => sub {
-      shift->render_jsonp(callback_function => {one => "two"});
-    };
+  get '/' => sub {
+    shift->render_jsonp(callback_function => {one => "two"});
+  };
 
 This has the same effect as specifying the callback function in the 
 plugin configuration, and will override the plugin configuration.

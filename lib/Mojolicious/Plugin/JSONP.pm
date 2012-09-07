@@ -88,7 +88,8 @@ Optionally, you can specify the callback function name in the B<render_jsonp> he
     shift->render_jsonp(callback_function => {one => "two"});
   };
 
-This overrides any plugin configuration, and returns the following response:
+Specifying the callback function name in the B<render_jsonp> helper overrides 
+any plugin configuration, and returns the following response:
 
   callback_function({"one":"two"})
 

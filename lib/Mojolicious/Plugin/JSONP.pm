@@ -1,6 +1,5 @@
 package Mojolicious::Plugin::JSONP;
 use Mojo::Base 'Mojolicious::Plugin';
-use Data::Dumper;
 
 our $VERSION = '0.01';
 
@@ -36,14 +35,20 @@ Mojolicious::Plugin::JSONP - Render JSONP with transparent fallback to JSON
 =head1 SYNOPSIS
 
   # Mojolicious
-  $self->plugin(JSONP => (callback => 'callback_function'));
+  $self->plugin(JSONP => callback => 'callback_function');
 
   # Mojolicious::Lite
-  plugin JSONP => (callback => 'callback_function');
+  plugin JSONP => callback => 'callback_function';
 
   get '/' => sub {
     shift->render_jsonp({one => 'two'});
   };
+
+  # GET request:
+  # ?callback_function=my_function
+
+  # Response:
+  # my_function({"one":"two"})
 
 =head1 DESCRIPTION
 
@@ -89,7 +94,7 @@ Optionally, you can specify the callback function name in the render_jsonp helpe
 
 This overrides any plugin configuration, and resulting in the following response:
 
-    callback_function({"one":"two"})
+  callback_function({"one":"two"})
 
 =head1 METHODS
 

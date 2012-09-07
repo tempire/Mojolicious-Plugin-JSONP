@@ -82,7 +82,7 @@ Only the JSON is returned:
 
     {"one":"two"}
 
-Optionally, specify the callback function name in the B<render_jsonp> helper:
+I<Optionally>, specify the callback function name in the B<render_jsonp> helper:
 
   get '/' => sub {
     shift->render_jsonp(callback_function => {one => "two"});

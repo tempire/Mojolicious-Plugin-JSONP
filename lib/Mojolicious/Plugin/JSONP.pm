@@ -58,7 +58,7 @@ If a callback is not supplied, only the JSON structure will be returned.
 
 Given the following configuration:
 
-  plugin JSON => (callback => 'callback_function');
+  plugin JSON => callback => 'callback_function';
 
 And the following action:
 

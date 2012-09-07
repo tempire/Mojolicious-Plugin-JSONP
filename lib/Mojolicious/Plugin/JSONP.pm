@@ -34,10 +34,6 @@ Mojolicious::Plugin::JSONP - Render JSONP with transparent fallback to JSON
 
 =head1 SYNOPSIS
 
-  # Mojolicious
-  $self->plugin(JSONP => callback => 'callback_function');
-
-  # Mojolicious::Lite
   plugin JSONP => callback => 'callback_function';
 
   get '/' => sub {
@@ -45,10 +41,10 @@ Mojolicious::Plugin::JSONP - Render JSONP with transparent fallback to JSON
   };
 
   # GET request:
-  # ?callback_function=my_function
+  #  ?callback_function=my_function
 
   # Response:
-  # my_function({"one":"two"})
+  #  my_function({"one":"two"})
 
 =head1 DESCRIPTION
 

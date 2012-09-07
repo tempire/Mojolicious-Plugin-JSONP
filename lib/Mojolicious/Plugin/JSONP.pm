@@ -82,14 +82,13 @@ Only the JSON is returned:
 
     {"one":"two"}
 
-Optionally, you can specify the callback function name in the B<render_jsonp> helper:
+Optionally, specify the callback function name in the B<render_jsonp> helper:
 
   get '/' => sub {
     shift->render_jsonp(callback_function => {one => "two"});
   };
 
-Specifying the callback function name in the B<render_jsonp> helper overrides 
-any plugin configuration, and returns the following response:
+Overriding plugin configuration, the following response is returned:
 
   callback_function({"one":"two"})
 

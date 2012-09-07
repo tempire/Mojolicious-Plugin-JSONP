@@ -21,8 +21,8 @@ Mojolicious::Plugin::JSONP - Render JSONP with transparent fallback to JSON
 L<Mojolicious::Plugin::JSONP> is a helper for rendering JSONP 
 with a transparent fallback to JSON if a callback parameter is not specified.
 
-The render_jsonp helper will render a Perl reference as JSON, wrapped in a supplied callback.
-If a callback is not supplied, only the JSON structure will be returned.
+The B<render_jsonp> helper renders a Perl reference as JSON, wrapped in a supplied callback.
+If a callback is not supplied, only the JSON structure is returned.
 
 =head2 Explanation
 
@@ -40,7 +40,7 @@ And this client (browser) request:
 
   http://domain.com/?callback_function=my_function
 
-The following will be returned:
+The following is returned:
 
   my_function({"one":"two"});
 
@@ -48,17 +48,17 @@ If the client request does not specify the expected callback function:
 
   http://domain.com/  # No parameters specified
 
-Only the JSON will be returned:
+Only the JSON is returned:
 
     {"one":"two"}
 
-Optionally, you can specify the callback function name in the render_jsonp helper:
+Optionally, you can specify the callback function name in the B<render_jsonp> helper:
 
   get '/' => sub {
     shift->render_jsonp(callback_function => {one => "two"});
   };
 
-This overrides any plugin configuration, and resulting in the following response:
+This overrides any plugin configuration, and returns the following response:
 
   callback_function({"one":"two"})
 

@@ -81,14 +81,15 @@ Only the JSON will be returned:
 
     {"one":"two"}
 
-Optionally, you can specify a callback parameter in the render_jsonp helper:
+Optionally, you can specify the callback function name in the render_jsonp helper:
 
   get '/' => sub {
     shift->render_jsonp(callback_function => {one => "two"});
   };
 
-This has the same effect as specifying the callback function in the 
-plugin configuration, and will override the plugin configuration.
+This overrides any plugin configuration, and resulting in the following response:
+
+    callback_function({"one":"two"})
 
 =head1 METHODS
 

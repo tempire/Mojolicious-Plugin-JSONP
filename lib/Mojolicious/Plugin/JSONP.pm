@@ -79,7 +79,7 @@ If the client request does not specify the expected callback function:
 
 Only the JSON will be returned:
 
-  {"one":"two"}
+    {"one":"two"}
 
 Optionally, you can specify a callback parameter in the render_jsonp helper:
 

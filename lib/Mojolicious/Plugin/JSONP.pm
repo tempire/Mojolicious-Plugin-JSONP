@@ -18,9 +18,9 @@ sub register {
       $callback = $self->param($conf->{callback}) if !$callback;
 
       return $callback
-        ?   $self->render(text => $callback . '('
-          . $self->render(json => $ref, partial => 1) . ')')
-        : $self->render_json($ref);
+        ?   $self->render( text => $callback . '('
+          . $self->render( json => $ref, partial => 1 ) . ')' )
+        :   $self->render( json => $ref );
     }
   );
 }

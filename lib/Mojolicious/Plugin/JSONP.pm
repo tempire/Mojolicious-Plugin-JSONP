@@ -1,7 +1,7 @@
 package Mojolicious::Plugin::JSONP;
 use Mojo::Base 'Mojolicious::Plugin';
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub register {
   my ($self, $app, $conf) = @_;
@@ -18,9 +18,9 @@ sub register {
       $callback = $self->param($conf->{callback}) if !$callback;
 
       return $callback
-        ?   $self->render( text => $callback . '('
-          . $self->render( json => $ref, partial => 1 ) . ')' )
-        :   $self->render( json => $ref );
+        ?   $self->render(text => $callback . '('
+          . $self->render(json => $ref, partial => 1) . ')')
+        : $self->render(json => $ref);
     }
   );
 }

@@ -17,9 +17,11 @@ sub register {
       #$callback //= $self->param($conf->{callback});
       $callback = $self->param($conf->{callback}) if !$callback;
 
+      my $method = $self->can('render_to_string') || $self->can('render');
+
       return $callback
         ?   $self->render(text => $callback . '('
-          . $self->render(json => $ref, partial => 1) . ')')
+          . $self->$method(json => $ref, partial => 1) . ')')
         : $self->render(json => $ref);
     }
   );
